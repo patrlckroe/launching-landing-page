@@ -1,0 +1,15 @@
+backend:
+  name: git-gateway
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "landing_page"
+    label: "Landing Page"
+    files:
+      - label: "Main Page Content"
+        name: "main_page"
+        file: "content/landing.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
