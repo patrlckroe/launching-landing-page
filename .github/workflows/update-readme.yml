@@ -1,0 +1,46 @@
+name: Auto Update README
+
+on:
+  push:
+    branches:
+      - main
+      - preview
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config user.name "patrlckroe"
+        git config user.email "pat10roe@icloud.com"
+
+    - name: Generate Commit Log
+      id: generate-log
+      run: |
+        echo "## Recent Updates" > recent-updates.md
+        git log --pretty=format:"- %h %s (%an)" -n 10 >> recent-updates.md
+        echo "Recent updates written to recent-updates.md"
+
+    - name: Update README
+      run: |
+        # Preserve existing README content, add the recent updates
+        if [ -f README.md ]; then
+          head -n 20 README.md > temp.md # Keep the top 20 lines of existing README
+          cat temp.md recent-updates.md > new-README.md
+        else
+          mv recent-updates.md new-README.md
+        fi
+        mv new-README.md README.md
+
+    - name: Commit and Push Changes
+      run: |
+        git add README.md
+        git commit -m "Updated README with recent changes"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
