@@ -27,3 +27,5 @@ Brief Project Updates...
 - b32b72b8 Merge branch 'main' of https://github.com/patrlckroe/launching-landing-page (patrlckroe)
 ### Update on Sun Jan 19 13:36:01 2025 CST
 - cd542501 Update tsconfig.json (patrlckroe)
+### Update on Sun Jan 19 13:38:57 2025 CST
+- 4080d627 Remove tsconfig.json from Git LFS and track normally (patrlckroe)
