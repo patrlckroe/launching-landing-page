@@ -30,4 +30,12 @@ jobs:
       run: |
         if [ "${{ env.trigger_branch }}" = "main" ]; then
           echo "Merging main into preview..."
-    
+          git checkout preview || git checkout -b preview origin/preview
+          git merge main --allow-unrelated-histories --no-edit
+          git push origin preview
+        elif [ "${{ env.trigger_branch }}" = "preview" ]; then
+          echo "Merging preview into main..."
+          git checkout main || git checkout -b main origin/main
+          git merge preview --allow-unrelated-histories --no-edit
+          git push origin main
+        fi
