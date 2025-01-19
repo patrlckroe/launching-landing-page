@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         persist-credentials: false # Ensure the token is not persisted
 
@@ -26,10 +26,15 @@ jobs:
     - name: Fetch branches
       run: git fetch origin +refs/heads/*:refs/remotes/origin/*
 
-    - name: Merge branches
+    - name: Sync Preview with Main
       run: |
-        git checkout preview
-        git merge origin/main
-        git push origin preview
+        # Checkout the preview branch, create it if it doesn't exist
+        git checkout preview || git checkout -b preview
+        
+        # Reset the preview branch to match main
+        git reset --hard origin/main
+        
+        # Push the changes to the preview branch
+        git push origin preview --force
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        G
