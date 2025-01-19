@@ -54,7 +54,7 @@ jobs:
           echo "No changes to commit."
         else
           git commit -m "Updated README with recent changes on $(date '+%a %b %d %H:%M:%S %Y %Z')"
-          git push origin main
+          git push origin HEAD:${GITHUB_REF##*/}
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
