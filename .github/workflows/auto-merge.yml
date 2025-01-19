@@ -37,4 +37,4 @@ jobs:
         # Push the changes to the preview branch
         git push origin preview --force
       env:
-        G
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
