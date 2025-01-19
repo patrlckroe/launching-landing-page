@@ -22,11 +22,16 @@ jobs:
         git config user.name "patrlckroe"
         git config user.email "pat10roe@icloud.com"
 
+    - name: Set Timezone to Chicago
+      run: |
+        sudo timedatectl set-timezone America/Chicago
+        echo "Timezone set to $(date)" # Verify the timezone change
+
     - name: Generate Commit Log
       id: generate-log
       run: |
         # Exclude updates to the README.md file from the log
-        echo -e "\n### Update on $(date)" > recent-updates.md
+        echo -e "\n### Update on $(date '+%a %b %d %H:%M:%S %Y %Z')" > recent-updates.md
         git log --pretty=format:"- %h %s (%an)" -n 10 -- . ':!README.md' >> recent-updates.md
         echo "Generated commit log excluding README.md updates: recent-updates.md"
 
@@ -48,7 +53,7 @@ jobs:
         if git diff --cached --quiet; then
           echo "No changes to commit."
         else
-          git commit -m "Updated README with recent changes on $(date)"
+          git commit -m "Updated README with recent changes on $(date '+%a %b %d %H:%M:%S %Y %Z')"
           git push origin main
         fi
       env:
