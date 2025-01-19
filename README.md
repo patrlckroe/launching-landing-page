@@ -25,3 +25,5 @@ Brief Project Updates...
 - a6f60031 update (patrlckroe)
 ### Update on Sun Jan 19 13:35:20 2025 CST
 - b32b72b8 Merge branch 'main' of https://github.com/patrlckroe/launching-landing-page (patrlckroe)
+### Update on Sun Jan 19 13:36:01 2025 CST
+- cd542501 Update tsconfig.json (patrlckroe)
