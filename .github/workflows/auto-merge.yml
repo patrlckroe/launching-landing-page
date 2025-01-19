@@ -16,25 +16,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        persist-credentials: false # Ensure the token is not persisted
+        persist-credentials: false
 
     - name: Set up Git
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "patrlckroe"
+        git config user.email "pat10roe@icloud.com"
 
     - name: Fetch branches
       run: git fetch origin +refs/heads/*:refs/remotes/origin/*
 
-    - name: Sync Preview with Main
+    - name: Merge branches
       run: |
-        # Checkout the preview branch, create it if it doesn't exist
-        git checkout preview || git checkout -b preview
-        
-        # Reset the preview branch to match main
-        git reset --hard origin/main
-        
-        # Push the changes to the preview branch
-        git push origin preview --force
+        git checkout -b preview origin/preview || git checkout preview
+        git merge origin/main --allow-unrelated-histories --no-edit
+        git push origin preview
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
