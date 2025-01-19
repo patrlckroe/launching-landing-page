@@ -1,0 +1,28 @@
+name: Auto Merge Main to Preview
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+
+    - name: Fetch all branches
+      run: git fetch --all
+
+    - name: Merge main into preview
+      run: |
+        git checkout preview
+        git merge main --no-edit
+        git push origin preview
