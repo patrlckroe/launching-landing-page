@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ebb9cc8fc40414f2503e2d700fa0b89fb9878437fcd87805c64a6d709f61b69
-size 132
+# PROEVISUALS
+
+Brief Project Updates...
+
+### Update on Sun Jan 19 04:58:26 UTC 2025
+- 0bfeceac Create update-readme.yml (patrlckroe)
