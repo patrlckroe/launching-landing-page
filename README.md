@@ -43,3 +43,5 @@ Brief Project Updates...
 - 4aecad51 Delete tsconfig.json (patrlckroe)
 ### Update on Sun Jan 19 13:52:34 2025 CST
 - 5805d5e Switch to regular Git for all files except .node (patrlckroe)
+### Update on Sun Jan 19 13:58:43 2025 CST
+- 7f7c0eb Stop tracking next.config.ts with Git LFS (patrlckroe)
