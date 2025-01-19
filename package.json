@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:01f613dddbe35d518117da16ba28f8153a4e1c6e652e99182a97fcc6189bf466
-size 646
+{
+  "name": "launching-landing-page",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@netlify/plugin-nextjs": "^5.9.3",
+    "next": "15.1.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.0.0",
+    "@types/node": "^20.17.14",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.1.5",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.4.2",
+    "typescript": "^5.2.2"
+  }
+}
