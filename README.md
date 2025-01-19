@@ -9,3 +9,5 @@ Brief Project Updates...
 - c0950173 Update README.md (patrlckroe)
 ### Update on Sat Jan 18 23:47:00 2025 CST
 - 12bca286 Update update-readme.yml (patrlckroe)
+### Update on Sun Jan 19 00:00:47 2025 CST
+- b82c9afb Create ci.yml (patrlckroe)
