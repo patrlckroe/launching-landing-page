@@ -1,0 +1,60 @@
+name: Auto Update README
+
+on:
+  push:
+    branches:
+      - main
+      - preview
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Git
+      run: |
+        git config user.name "patrlckroe"
+        git config user.email "pat10roe@icloud.com"
+
+    - name: Set Timezone to Chicago
+      run: |
+        sudo timedatectl set-timezone America/Chicago
+        echo "Timezone set to $(date)" # Verify the timezone change
+
+    - name: Generate Commit Log
+      id: generate-log
+      run: |
+        # Exclude updates to the README.md file from the log
+        echo -e "\n### Update on $(date '+%a %b %d %H:%M:%S %Y %Z')" > recent-updates.md
+        git log --pretty=format:"- %h %s (%an)" -n 10 -- . ':!README.md' >> recent-updates.md
+        echo "Generated commit log excluding README.md updates: recent-updates.md"
+
+    - name: Update README
+      run: |
+        target_file="README.md"
+        # Ensure we're targeting the correct README.md file
+        if [ -f "$target_file" ]; then
+          cat recent-updates.md >> "$target_file"
+        else
+          mv recent-updates.md "$target_file"
+        fi
+        echo "Appended recent updates to $target_file"
+
+    - name: Commit and Push Changes
+      run: |
+        git add README.md
+        # Skip committing if there are no changes to README.md
+        if git diff --cached --quiet; then
+          echo "No changes to commit."
+        else
+          git commit -m "Updated README with recent changes on $(date '+%a %b %d %H:%M:%S %Y %Z')"
+          git push origin main
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
