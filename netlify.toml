@@ -1,7 +1,6 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  environment = { GIT_SSH_COMMAND = "ssh -i /opt/buildhome/.ssh/NETLIFY_DEPLOY_KEY -o StrictHostKeyChecking=no" }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
