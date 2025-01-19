@@ -4,26 +4,32 @@ on:
   push:
     branches:
       - main
-      - preview
 
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
-        fetch-depth: 0  # Fetch the full history to handle merges
+        persist-credentials: false # Ensure the token is not persisted
 
     - name: Set up Git
       run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "actions@github.com"
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
 
-    - name: Fetch all branches
-      run: git fetch --all
+    - name: Fetch branches
+      run: git fetch origin +refs/heads/*:refs/remotes/origin/*
 
-    - name: Determine Triggered Branch
-      id: branch-check
-      run: echo "trigger_branch=${GITHUB_REF#refs/heads/}" >>
+    - name: Merge branches
+      run: |
+        git checkout preview
+        git merge origin/main
+        git push origin preview
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
