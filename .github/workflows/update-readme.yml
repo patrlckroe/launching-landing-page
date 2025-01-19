@@ -25,21 +25,20 @@ jobs:
     - name: Generate Commit Log
       id: generate-log
       run: |
-        echo "## Recent Updates" > recent-updates.md
+        # Generate the commit log with timestamp
+        echo -e "\n### Update on $(date)" > recent-updates.md
         git log --pretty=format:"- %h %s (%an)" -n 10 >> recent-updates.md
-        echo "Generated commit log: recent-updates.md"
+        echo "Generated commit log with timestamp: recent-updates.md"
 
     - name: Update README
       run: |
-        # Preserve existing README content, add the recent updates
+        # Append recent updates to the existing README file
         if [ -f README.md ]; then
-          head -n 20 README.md > temp.md || true # Keep the top 20 lines of existing README
-          cat temp.md recent-updates.md > new-README.md
+          cat recent-updates.md >> README.md
         else
-          mv recent-updates.md new-README.md
+          mv recent-updates.md README.md
         fi
-        mv new-README.md README.md
-        echo "Updated README with recent updates."
+        echo "Appended recent updates to README.md"
 
     - name: Commit and Push Changes
       run: |
@@ -47,7 +46,7 @@ jobs:
         if git diff --cached --quiet; then
           echo "No changes to commit."
         else
-          git commit -m "Updated README with recent changes"
+          git commit -m "Updated README with recent changes on $(date)"
           git push origin ${{ github.ref_name }}
         fi
       env:
