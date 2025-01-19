@@ -11,3 +11,6 @@ node_modules/next/dist/compiled/next-server/server.runtime.prod.js.map filter=lf
 node_modules/@img/sharp-libvips-darwin-x64/lib/libvips-cpp.42.dylib filter=lfs diff=lfs merge=lfs -text
 node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node filter=lfs diff=lfs merge=lfs -text
 node_modules/**/* filter=lfs diff=lfs merge=lfs -text
+.git/lfs/objects/ab/d2/abd2783a73b054229e1e2d99968ed1482246b52173cd09ed87f8aa8e4895532f filter=lfs diff=lfs merge=lfs -text
+.git/lfs/objects/80/c0/80c0be11c7c8840b44a5a20bc779af99641ca1c3d9c2b367dedfe7ce7c0762a9 filter=lfs diff=lfs merge=lfs -text
+.git/lfs/objects/4f/4a/4f4abba25c56185cfbfc738afe37beed5dfad5112cf194ec9b921dbb365af52a filter=lfs diff=lfs merge=lfs -text
