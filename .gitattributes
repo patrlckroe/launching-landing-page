@@ -1,12 +1,4 @@
-*.map filter=lfs diff=lfs merge=lfs -text
-*.js filter=lfs diff=lfs merge=lfs -text
 *.node filter=lfs diff=lfs merge=lfs -text
-*.json filter=lfs diff=lfs merge=lfs -text
-*.ts filter=lfs diff=lfs merge=lfs -text
-*.cts filter=lfs diff=lfs merge=lfs -text
-*.bnf filter=lfs diff=lfs merge=lfs -text
-*.html filter=lfs diff=lfs merge=lfs -text
-*.mjs filter=lfs diff=lfs merge=lfs -text
 node_modules/next/dist/compiled/next-server/server.runtime.prod.js.map filter=lfs diff=lfs merge=lfs -text
 node_modules/@img/sharp-libvips-darwin-x64/lib/libvips-cpp.42.dylib filter=lfs diff=lfs merge=lfs -text
 node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node filter=lfs diff=lfs merge=lfs -text
