@@ -1,24 +1,21 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-async function getLandingData() {
+async function getLandingPageContent() {
   const filePath = path.join(process.cwd(), "content", "landing.json");
-  const data = await fs.readFile(filePath, "utf-8");
+  const data = await fs.readFile(filePath, "utf8");
   return JSON.parse(data);
 }
 
 export default async function Home() {
-  const { title, description, backgroundImage } = await getLandingData();
+  const { title, description, backgroundImage } = await getLandingPageContent();
 
   return (
     <main
-      className="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-white text-center"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-      }}
+      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="relative">
+      <div className="text-center text-white">
         <h1 className="text-6xl font-bold">{title}</h1>
         <p className="mt-4 text-xl">{description}</p>
       </div>

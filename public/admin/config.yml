@@ -1,14 +1,13 @@
 backend:
   name: git-gateway
-media_folder: "public/uploads"
-public_folder: "/uploads"
-
+media_folder: "public/uploads" # Folder for media files in the repo
+public_folder: "/uploads"      # Path for media files in the app
 collections:
   - name: "landing_page"
     label: "Landing Page"
     files:
-      - label: "Main Page Content"
-        name: "main_page"
+      - label: "Landing Page Content"
+        name: "main"
         file: "content/landing.json"
         fields:
           - { label: "Title", name: "title", widget: "string" }
