@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+];
+
+export default eslintConfig;
+=======
 version https://git-lfs.github.com/spec/v1
-oid sha256:1063ea1a881b054b96d03658239689bf1eb6f9a31cc67b503b2846f4b65d2246
-size 591
+oid sha256:3de4ba23ff1f687685651cad622700613998de80daa30ac4d82c47776a04019d
+size 393
+>>>>>>> 9abc52603be50647193dc1a9eecb2ef3df4ed98f

@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+{
+  "title": "Coming Soon",
+  "description": "Our website is under construction. Stay tuned for updates!"
+}
+=======
 version https://git-lfs.github.com/spec/v1
-oid sha256:bc1f5e1d2ae765590efcec7a844714469a7f195ec07e4ca3f1aead269914c07f
-size 306
+oid sha256:382324baff52c6a18c10bf449b89fdd05f29498d81f465fd161a88809475d1dc
+size 108
+>>>>>>> 9abc52603be50647193dc1a9eecb2ef3df4ed98f
