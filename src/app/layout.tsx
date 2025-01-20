@@ -3,7 +3,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 // Import home.json content
-import homeContent from "./content/pages/home.json"; // Adjust path based on your file location
+import homeContent from "../../content/pages/home.json"; // Adjust path based on your file location
 
 const inter = Inter({
   variable: "--font-inter",
