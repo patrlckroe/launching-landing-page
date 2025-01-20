@@ -8,7 +8,7 @@ async function getLandingPageContent() {
 }
 
 export default async function Home() {
-  const { title, description, backgroundImage } = await getLandingPageContent();
+  const { title, description, backgroundImage, email } = await getLandingPageContent();
 
   return (
     <main
@@ -18,6 +18,15 @@ export default async function Home() {
       <div className="text-center text-white">
         <h1 className="text-6xl font-bold">{title}</h1>
         <p className="mt-4 text-xl">{description}</p>
+        <p className="text-md">
+          For inquiries, contact us at:{" "}
+          <a
+            href={`mailto:${email}`}
+            className="text-blue-500 hover:underline"
+          >
+            {email}
+          </a>
+        </p>
       </div>
     </main>
   );
