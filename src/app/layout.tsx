@@ -3,7 +3,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 // Import home.json content
-import homeContent from "../../content/pages/home.json"; // Adjust path based on your file location
+import homeContent from "../../content/pages/home.json"; // Adjust the path as needed
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,8 +16,8 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: homeContent.title, // Dynamically set metadata title
-  description: homeContent.description, // Dynamically set metadata description
+  title: homeContent.title,
+  description: homeContent.description,
 };
 
 export default function RootLayout({
@@ -30,16 +30,18 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased bg-gif bg-cover bg-center bg-fixed`}
       >
-        {/* Hide JSON content from rendering */}
-        <div data-sb-object-id={homeContent.id} style={{ display: "none" }}>
+        {/* Attach the JSON content with data-sb-object-id */}
+        <div data-sb-object-id={homeContent.id}>
           <header>
+            {/* Link the title field */}
             <h1 data-sb-field-path="title">{homeContent.title}</h1>
           </header>
           <main>
+            {/* Link the description field */}
             <p data-sb-field-path="description">{homeContent.description}</p>
+            {children}
           </main>
         </div>
-        {children}
       </body>
     </html>
   );
