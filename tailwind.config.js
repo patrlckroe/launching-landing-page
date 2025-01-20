@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}", // Include all files in the `src` directory
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gif': "url('/background.gif')", // Single GIF background
+      },
+    },
   },
   plugins: [],
 };
