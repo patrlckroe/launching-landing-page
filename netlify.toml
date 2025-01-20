@@ -15,5 +15,8 @@
   to = "/index.html"
   status = 200
 
-[netlify-plugin-stackbit]
+[functions]
+  node_bundler = "esbuild"
+
+[metadata]
   stackbit-editing = true
