@@ -5,6 +5,11 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
