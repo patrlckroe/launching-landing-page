@@ -30,18 +30,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased bg-gif bg-cover bg-center bg-fixed`}
       >
-        {/* Attach the JSON content with data-sb-object-id */}
-        <div data-sb-object-id={homeContent.id}>
+        {/* Hide JSON content from rendering */}
+        <div data-sb-object-id={homeContent.id} style={{ display: "none" }}>
           <header>
-            {/* Link the title field */}
             <h1 data-sb-field-path="title">{homeContent.title}</h1>
           </header>
           <main>
-            {/* Optionally display the description */}
             <p data-sb-field-path="description">{homeContent.description}</p>
-            {children}
           </main>
         </div>
+        {children}
       </body>
     </html>
   );
