@@ -19,7 +19,7 @@ export default async function Home() {
         <h1 className="text-6xl font-bold">{title}</h1>
         <p className="mt-4 text-xl">{description}</p>
         <p className="text-md">
-          For inquiries, contact us at:{" "}
+          For bookings and inquiries, contact us at:{" "}
           <a
             href={`mailto:${email}`}
             className="text-blue-500 hover:underline"
