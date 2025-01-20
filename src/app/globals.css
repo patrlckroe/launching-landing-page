@@ -5,17 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --background-gif: url('/background.gif'); /* Path to your GIF */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --background-gif: url('/background-dark.gif'); /* Optional dark mode GIF */
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--background) var(--background-gif) no-repeat center center fixed;
+  background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
 }
