@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next-sitemap" // Script to generate the sitemap
+    "export": "next-sitemap"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.9.3",
