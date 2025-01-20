@@ -16,7 +16,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: homeContent.title,
+  title: "PROΞVISUALS", // Dynamically set metadata title for the <head>
   description: homeContent.description,
 };
 
@@ -31,17 +31,18 @@ export default function RootLayout({
         className={`${inter.variable} ${robotoMono.variable} antialiased bg-gif bg-cover bg-center bg-fixed`}
       >
         {/* Attach the JSON content with data-sb-object-id */}
-        <div data-sb-object-id={homeContent.id}>
+        <div data-sb-object-id={homeContent.id} style={{ display: "none" }}>
           <header>
-            {/* Link the title field */}
+            {/* Title field for the Visual Editor */}
             <h1 data-sb-field-path="title">{homeContent.title}</h1>
           </header>
           <main>
-            {/* Link the description field */}
+            {/* Description field for the Visual Editor */}
             <p data-sb-field-path="description">{homeContent.description}</p>
-            {children}
           </main>
         </div>
+        {/* Render children */}
+        {children}
       </body>
     </html>
   );
